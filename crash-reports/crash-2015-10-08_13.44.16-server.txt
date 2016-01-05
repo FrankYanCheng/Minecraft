@@ -1,0 +1,172 @@
+---- Minecraft Crash Report ----
+// But it works on my machine.
+
+Time: 10/8/15 1:44 PM
+Description: Watching Server
+
+java.lang.Error
+	at aqr.p(SourceFile:658)
+	at are.b(SourceFile:95)
+	at are.a(SourceFile:59)
+	at sp.a(SourceFile:514)
+	at sp.a(SourceFile:449)
+	at qx.c(SourceFile:428)
+	at wx.K(SourceFile:303)
+	at xo.K(SourceFile:176)
+	at wx.t_(SourceFile:266)
+	at xo.t_(SourceFile:1265)
+	at aha.t_(SourceFile:277)
+	at qx.l(SourceFile:250)
+	at rl.a(SourceFile:301)
+	at mh.a(SourceFile:126)
+	at mh.a(SourceFile:8)
+	at ii.run(SourceFile:13)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:577)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:448)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at aqr.p(SourceFile:658)
+	at are.b(SourceFile:95)
+	at are.a(SourceFile:59)
+	at sp.a(SourceFile:514)
+	at sp.a(SourceFile:449)
+	at qx.c(SourceFile:428)
+	at wx.K(SourceFile:303)
+	at xo.K(SourceFile:176)
+	at wx.t_(SourceFile:266)
+	at xo.t_(SourceFile:1265)
+	at aha.t_(SourceFile:277)
+	at qx.l(SourceFile:250)
+	at rl.a(SourceFile:301)
+	at mh.a(SourceFile:126)
+	at mh.a(SourceFile:8)
+	at ii.run(SourceFile:13)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:577)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+
+-- Thread Dump --
+Details:
+	Threads: "File IO Thread" Id=21 RUNNABLE
+	at java.io.RandomAccessFile.write0(Native Method)
+	at java.io.RandomAccessFile.write(RandomAccessFile.java:500)
+	at java.io.RandomAccessFile.writeInt(RandomAccessFile.java:1054)
+	at bft.a(SourceFile:316)
+	at bft.a(SourceFile:255)
+	-  locked bft@324a0db
+	at bfu.close(SourceFile:236)
+	at java.util.zip.DeflaterOutputStream.close(DeflaterOutputStream.java:241)
+	at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+	...
+
+
+"Server Watchdog" Id=20 RUNNABLE
+	at sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:446)
+	at pu.run(SourceFile:43)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Netty Epoll Server IO #1" Id=18 RUNNABLE
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:345)
+	at java.io.BufferedOutputStream.write(BufferedOutputStream.java:122)
+	-  locked java.io.BufferedOutputStream@59bc8b79
+	at java.io.PrintStream.write(PrintStream.java:480)
+	-  locked java.io.PrintStream@6968e2f5
+	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:221)
+	at sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:291)
+	at sun.nio.cs.StreamEncoder.implFlush(StreamEncoder.java:295)
+	at sun.nio.cs.StreamEncoder.flush(StreamEncoder.java:141)
+	-  locked java.io.OutputStreamWriter@15d4b2e9
+	...
+
+
+"Netty Epoll Server IO #0" Id=17 BLOCKED on java.util.ArrayDeque@3e8e0d42 owned by "Server thread" Id=12
+	at net.minecraft.server.MinecraftServer.a(SourceFile:1276)
+	-  blocked on java.util.ArrayDeque@3e8e0d42
+	at net.minecraft.server.MinecraftServer.a(SourceFile:1292)
+	at qu.a(SourceFile:978)
+	at ih.a(SourceFile:10)
+	at rl.a(SourceFile:194)
+	at mh.a(SourceFile:126)
+	at mh.a(SourceFile:8)
+	at gr.a(SourceFile:123)
+	...
+
+
+"DestroyJavaVM" Id=14 RUNNABLE
+
+
+"Server thread" Id=12 RUNNABLE
+	at aqr.p(SourceFile:658)
+	at are.b(SourceFile:95)
+	at are.a(SourceFile:59)
+	at sp.a(SourceFile:514)
+	at sp.a(SourceFile:449)
+	at qx.c(SourceFile:428)
+	at wx.K(SourceFile:303)
+	at xo.K(SourceFile:176)
+	...
+
+
+"Server Infinisleeper" Id=11 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at pq.run(SourceFile:65)
+
+
+"Snooper Timer" Id=10 TIMED_WAITING on java.util.TaskQueue@60088823
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@60088823
+	at java.util.TimerThread.mainLoop(Timer.java:552)
+	at java.util.TimerThread.run(Timer.java:505)
+
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+
+"Finalizer" Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@5021e316
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@5021e316
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+
+"Reference Handler" Id=2 WAITING on java.lang.ref.Reference$Lock@60c3e273
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.Reference$Lock@60c3e273
+	at java.lang.Object.wait(Object.java:503)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+
+
+
+Stacktrace:
+	at pu.run(SourceFile:59)
+	at java.lang.Thread.run(Thread.java:745)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.1
+	Operating System: Linux (amd64) version 3.13.0-32-generic
+	Java Version: 1.7.0_80, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 132658368 bytes (126 MB) / 464166912 bytes (442 MB) up to 518979584 bytes (494 MB)
+	JVM Flags: 2 total; -Xms128M -Xmx512M
+	IntCache: cache: 0, tcache: 0, allocated: 13, tallocated: 95
+	Profiler Position: N/A (disabled)
+	Player Count: 2 / 20; [qx['MR.Chu'/171, l='world', x=494.00, y=82.00, z=-287.00], qx['My'/447, l='world', x=-8.50, y=63.00, z=301.50]]
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)
