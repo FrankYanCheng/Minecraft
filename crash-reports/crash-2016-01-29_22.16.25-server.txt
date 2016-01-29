@@ -1,0 +1,183 @@
+---- Minecraft Crash Report ----
+// Shall we play a game?
+
+Time: 1/29/16 10:16 PM
+Description: Watching Server
+
+java.lang.Error
+	at abv.<init>(SourceFile:27)
+	at sun.reflect.GeneratedConstructorAccessor20.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at xd.a(SourceFile:181)
+	at bfw.a(SourceFile:331)
+	at bfw.a(SourceFile:96)
+	at bfw.a(SourceFile:83)
+	at qt.e(SourceFile:129)
+	at qt.c(SourceFile:81)
+	at qs.<init>(SourceFile:39)
+	at qr.a(SourceFile:231)
+	at qr.d(SourceFile:370)
+	at sp.d(SourceFile:286)
+	at rl.a(SourceFile:375)
+	at mh.a(SourceFile:126)
+	at mj.a(SourceFile:18)
+	at ii.run(SourceFile:13)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:577)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:448)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at abv.<init>(SourceFile:27)
+	at sun.reflect.GeneratedConstructorAccessor20.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at xd.a(SourceFile:181)
+	at bfw.a(SourceFile:331)
+	at bfw.a(SourceFile:96)
+	at bfw.a(SourceFile:83)
+	at qt.e(SourceFile:129)
+	at qt.c(SourceFile:81)
+	at qs.<init>(SourceFile:39)
+	at qr.a(SourceFile:231)
+	at qr.d(SourceFile:370)
+	at sp.d(SourceFile:286)
+	at rl.a(SourceFile:375)
+	at mh.a(SourceFile:126)
+	at mj.a(SourceFile:18)
+	at ii.run(SourceFile:13)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:577)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+
+-- Thread Dump --
+Details:
+	Threads: "Netty Epoll Server IO #1" Id=19 BLOCKED on java.util.ArrayDeque@4da7bc09 owned by "Server thread" Id=12
+	at net.minecraft.server.MinecraftServer.a(SourceFile:1275)
+	-  blocked on java.util.ArrayDeque@4da7bc09
+	at net.minecraft.server.MinecraftServer.a(SourceFile:1292)
+	at qu.a(SourceFile:978)
+	at ih.a(SourceFile:10)
+	at rl.a(SourceFile:194)
+	at mh.a(SourceFile:126)
+	at mj.a(SourceFile:18)
+	at gr.a(SourceFile:123)
+	...
+
+
+"File IO Thread" Id=22 RUNNABLE
+	at java.util.zip.Deflater.deflateBytes(Native Method)
+	at java.util.zip.Deflater.deflate(Deflater.java:430)
+	-  locked java.util.zip.ZStreamRef@384e5d26
+	at java.util.zip.Deflater.deflate(Deflater.java:352)
+	at java.util.zip.DeflaterOutputStream.deflate(DeflaterOutputStream.java:251)
+	at java.util.zip.DeflaterOutputStream.write(DeflaterOutputStream.java:211)
+	at java.util.zip.DeflaterOutputStream.write(DeflaterOutputStream.java:188)
+	at java.io.DataOutputStream.writeInt(DataOutputStream.java:199)
+	at ft.a(SourceFile:22)
+	...
+
+
+"Server Watchdog" Id=21 RUNNABLE
+	at sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:446)
+	at pu.run(SourceFile:43)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Netty Epoll Server IO #0" Id=18 RUNNABLE
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Server console handler" Id=15 RUNNABLE (in native)
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(FileInputStream.java:272)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:273)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:334)
+	-  locked java.io.BufferedInputStream@20c586ab
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:283)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:325)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:177)
+	-  locked java.io.InputStreamReader@61b80f24
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	...
+
+
+"DestroyJavaVM" Id=14 RUNNABLE
+
+
+"Server thread" Id=12 RUNNABLE
+	at abv.<init>(SourceFile:27)
+	at sun.reflect.GeneratedConstructorAccessor20.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at xd.a(SourceFile:181)
+	at bfw.a(SourceFile:331)
+	at bfw.a(SourceFile:96)
+	at bfw.a(SourceFile:83)
+	...
+
+
+"Server Infinisleeper" Id=11 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at pq.run(SourceFile:65)
+
+
+"Snooper Timer" Id=10 TIMED_WAITING on java.util.TaskQueue@1bc349fa
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@1bc349fa
+	at java.util.TimerThread.mainLoop(Timer.java:552)
+	at java.util.TimerThread.run(Timer.java:505)
+
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+
+"Finalizer" Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@322dca53
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@322dca53
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+
+"Reference Handler" Id=2 WAITING on java.lang.ref.Reference$Lock@5c3e28e1
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.Reference$Lock@5c3e28e1
+	at java.lang.Object.wait(Object.java:503)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+
+
+
+Stacktrace:
+	at pu.run(SourceFile:59)
+	at java.lang.Thread.run(Thread.java:745)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.1
+	Operating System: Linux (amd64) version 3.13.0-32-generic
+	Java Version: 1.7.0_80, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 176402928 bytes (168 MB) / 427761664 bytes (407 MB) up to 518979584 bytes (494 MB)
+	JVM Flags: 2 total; -Xms128M -Xmx512M
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	Profiler Position: N/A (disabled)
+	Player Count: 0 / 20; []
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)

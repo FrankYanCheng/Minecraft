@@ -1,0 +1,195 @@
+---- Minecraft Crash Report ----
+// But it works on my machine.
+
+Time: 1/29/16 10:37 PM
+Description: Watching Server
+
+java.lang.Error
+	at java.util.AbstractCollection.<init>(AbstractCollection.java:66)
+	at java.util.AbstractSet.<init>(AbstractSet.java:63)
+	at java.util.HashSet.<init>(HashSet.java:141)
+	at com.google.common.collect.Sets.newHashSetWithExpectedSize(Sets.java:201)
+	at com.google.common.collect.HashMultimap.createCollection(HashMultimap.java:114)
+	at com.google.common.collect.HashMultimap.createCollection(HashMultimap.java:49)
+	at com.google.common.collect.AbstractMapBasedMultimap.createCollection(AbstractMapBasedMultimap.java:169)
+	at com.google.common.collect.AbstractMapBasedMultimap.get(AbstractMapBasedMultimap.java:306)
+	at com.google.common.collect.AbstractSetMultimap.get(AbstractSetMultimap.java:63)
+	at com.google.common.collect.HashMultimap.get(HashMultimap.java:49)
+	at com.google.common.collect.AbstractSetMultimap.get(AbstractSetMultimap.java:34)
+	at uf.iterator(SourceFile:79)
+	at bff.a(SourceFile:801)
+	at aqr.a(SourceFile:2270)
+	at aat.a(SourceFile:72)
+	at zf.a(SourceFile:72)
+	at xq.bK(SourceFile:465)
+	at xo.m(SourceFile:1432)
+	at xq.m(SourceFile:339)
+	at afm.m(SourceFile:27)
+	at agh.m(SourceFile:202)
+	at xo.t_(SourceFile:1300)
+	at xq.t_(SourceFile:211)
+	at afm.t_(SourceFile:32)
+	at agh.t_(SourceFile:258)
+	at aqr.a(SourceFile:1407)
+	at qu.a(SourceFile:600)
+	at aqr.g(SourceFile:1385)
+	at aqr.i(SourceFile:1278)
+	at qu.i(SourceFile:478)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:608)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:448)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at java.util.AbstractCollection.<init>(AbstractCollection.java:66)
+	at java.util.AbstractSet.<init>(AbstractSet.java:63)
+	at java.util.HashSet.<init>(HashSet.java:141)
+	at com.google.common.collect.Sets.newHashSetWithExpectedSize(Sets.java:201)
+	at com.google.common.collect.HashMultimap.createCollection(HashMultimap.java:114)
+	at com.google.common.collect.HashMultimap.createCollection(HashMultimap.java:49)
+	at com.google.common.collect.AbstractMapBasedMultimap.createCollection(AbstractMapBasedMultimap.java:169)
+	at com.google.common.collect.AbstractMapBasedMultimap.get(AbstractMapBasedMultimap.java:306)
+	at com.google.common.collect.AbstractSetMultimap.get(AbstractSetMultimap.java:63)
+	at com.google.common.collect.HashMultimap.get(HashMultimap.java:49)
+	at com.google.common.collect.AbstractSetMultimap.get(AbstractSetMultimap.java:34)
+	at uf.iterator(SourceFile:79)
+	at bff.a(SourceFile:801)
+	at aqr.a(SourceFile:2270)
+	at aat.a(SourceFile:72)
+	at zf.a(SourceFile:72)
+	at xq.bK(SourceFile:465)
+	at xo.m(SourceFile:1432)
+	at xq.m(SourceFile:339)
+	at afm.m(SourceFile:27)
+	at agh.m(SourceFile:202)
+	at xo.t_(SourceFile:1300)
+	at xq.t_(SourceFile:211)
+	at afm.t_(SourceFile:32)
+	at agh.t_(SourceFile:258)
+	at aqr.a(SourceFile:1407)
+	at qu.a(SourceFile:600)
+	at aqr.g(SourceFile:1385)
+	at aqr.i(SourceFile:1278)
+	at qu.i(SourceFile:478)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:608)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+
+-- Thread Dump --
+Details:
+	Threads: "SIGTERM handler" Id=23 RUNNABLE
+
+
+"SIGHUP handler" Id=22 RUNNABLE
+	at java.lang.Thread.start0(Native Method)
+	at java.lang.Thread.start(Thread.java:714)
+	-  locked pf@274aa917
+	at java.lang.ApplicationShutdownHooks.runHooks(ApplicationShutdownHooks.java:102)
+	at java.lang.ApplicationShutdownHooks$1.run(ApplicationShutdownHooks.java:46)
+	at java.lang.Shutdown.runHooks(Shutdown.java:123)
+	at java.lang.Shutdown.sequence(Shutdown.java:167)
+	at java.lang.Shutdown.exit(Shutdown.java:212)
+	-  locked java.lang.Class@7aa8cd37
+	at java.lang.Terminator$1.handle(Terminator.java:52)
+	...
+
+
+"File IO Thread" Id=21 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at brn.c(SourceFile:51)
+	at brn.run(SourceFile:30)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Netty Epoll Server IO #1" Id=18 RUNNABLE (in native)
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Server Watchdog" Id=20 RUNNABLE
+	at sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:446)
+	at pu.run(SourceFile:43)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Netty Epoll Server IO #0" Id=17 RUNNABLE (in native)
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"DestroyJavaVM" Id=14 RUNNABLE
+
+
+"Server thread" Id=12 RUNNABLE
+	at java.util.AbstractCollection.<init>(AbstractCollection.java:66)
+	at java.util.AbstractSet.<init>(AbstractSet.java:63)
+	at java.util.HashSet.<init>(HashSet.java:141)
+	at com.google.common.collect.Sets.newHashSetWithExpectedSize(Sets.java:201)
+	at com.google.common.collect.HashMultimap.createCollection(HashMultimap.java:114)
+	at com.google.common.collect.HashMultimap.createCollection(HashMultimap.java:49)
+	at com.google.common.collect.AbstractMapBasedMultimap.createCollection(AbstractMapBasedMultimap.java:169)
+	at com.google.common.collect.AbstractMapBasedMultimap.get(AbstractMapBasedMultimap.java:306)
+	...
+
+
+"Server Infinisleeper" Id=11 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at pq.run(SourceFile:65)
+
+
+"Snooper Timer" Id=10 TIMED_WAITING on java.util.TaskQueue@603914ca
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@603914ca
+	at java.util.TimerThread.mainLoop(Timer.java:552)
+	at java.util.TimerThread.run(Timer.java:505)
+
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+
+"Finalizer" Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@43840b20
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@43840b20
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+
+"Reference Handler" Id=2 WAITING on java.lang.ref.Reference$Lock@11f68481
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.Reference$Lock@11f68481
+	at java.lang.Object.wait(Object.java:503)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+
+
+
+Stacktrace:
+	at pu.run(SourceFile:59)
+	at java.lang.Thread.run(Thread.java:745)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.1
+	Operating System: Linux (amd64) version 3.13.0-32-generic
+	Java Version: 1.7.0_80, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 66147760 bytes (63 MB) / 233021440 bytes (222 MB) up to 518979584 bytes (494 MB)
+	JVM Flags: 2 total; -Xmx512M -Xms128M
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	Profiler Position: N/A (disabled)
+	Player Count: 0 / 20; []
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)
