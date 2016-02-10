@@ -1,0 +1,183 @@
+---- Minecraft Crash Report ----
+// You're mean.
+
+Time: 1/31/16 11:17 PM
+Description: Watching Server
+
+java.lang.Error
+	at bee.a(SourceFile:106)
+	at ato.c(SourceFile:141)
+	at avc.e(SourceFile:251)
+	at avc.a(SourceFile:82)
+	at avc.a(SourceFile:76)
+	at ato.a(SourceFile:421)
+	at aqr.a(SourceFile:966)
+	at wx.d(SourceFile:486)
+	at xo.g(SourceFile:1217)
+	at xo.m(SourceFile:1460)
+	at xq.m(SourceFile:339)
+	at wu.m(SourceFile:126)
+	at abt.m(SourceFile:38)
+	at acd.m(SourceFile:240)
+	at xo.t_(SourceFile:1300)
+	at xq.t_(SourceFile:211)
+	at aqr.a(SourceFile:1407)
+	at qu.a(SourceFile:600)
+	at aqr.g(SourceFile:1385)
+	at aqr.i(SourceFile:1278)
+	at qu.i(SourceFile:478)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:608)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:448)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at bee.a(SourceFile:106)
+	at ato.c(SourceFile:141)
+	at avc.e(SourceFile:251)
+	at avc.a(SourceFile:82)
+	at avc.a(SourceFile:76)
+	at ato.a(SourceFile:421)
+	at aqr.a(SourceFile:966)
+	at wx.d(SourceFile:486)
+	at xo.g(SourceFile:1217)
+	at xo.m(SourceFile:1460)
+	at xq.m(SourceFile:339)
+	at wu.m(SourceFile:126)
+	at abt.m(SourceFile:38)
+	at acd.m(SourceFile:240)
+	at xo.t_(SourceFile:1300)
+	at xq.t_(SourceFile:211)
+	at aqr.a(SourceFile:1407)
+	at qu.a(SourceFile:600)
+	at aqr.g(SourceFile:1385)
+	at aqr.i(SourceFile:1278)
+	at qu.i(SourceFile:478)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:608)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+
+-- Thread Dump --
+Details:
+	Threads: "File IO Thread" Id=22 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at brn.c(SourceFile:51)
+	at brn.run(SourceFile:30)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Netty Epoll Server IO #1" Id=19 RUNNABLE
+	at ih.a(SourceFile:16)
+	at rl.a(SourceFile:194)
+	at mh.a(SourceFile:126)
+	at mh.a(SourceFile:8)
+	at gr.a(SourceFile:123)
+	at gr.channelRead0(SourceFile:43)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)
+	...
+
+
+"Server Watchdog" Id=21 RUNNABLE
+	at sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:446)
+	at pu.run(SourceFile:43)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Netty Epoll Server IO #0" Id=18 RUNNABLE
+	at java.lang.Throwable.fillInStackTrace(Native Method)
+	at java.lang.Throwable.fillInStackTrace(Throwable.java:783)
+	-  locked java.lang.NumberFormatException@344f40f9
+	at java.lang.Throwable.<init>(Throwable.java:265)
+	at java.lang.Exception.<init>(Exception.java:66)
+	at java.lang.RuntimeException.<init>(RuntimeException.java:62)
+	at java.lang.IllegalArgumentException.<init>(IllegalArgumentException.java:53)
+	at java.lang.NumberFormatException.<init>(NumberFormatException.java:55)
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	...
+
+
+"Server console handler" Id=14 RUNNABLE (in native)
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(FileInputStream.java:272)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:273)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:334)
+	-  locked java.io.BufferedInputStream@3f32b643
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:283)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:325)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:177)
+	-  locked java.io.InputStreamReader@105adfbe
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	...
+
+
+"DestroyJavaVM" Id=15 RUNNABLE
+
+
+"Server thread" Id=12 RUNNABLE
+	at bee.a(SourceFile:106)
+	at ato.c(SourceFile:141)
+	at avc.e(SourceFile:251)
+	at avc.a(SourceFile:82)
+	at avc.a(SourceFile:76)
+	at ato.a(SourceFile:421)
+	at aqr.a(SourceFile:966)
+	at wx.d(SourceFile:486)
+	...
+
+
+"Server Infinisleeper" Id=11 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at pq.run(SourceFile:65)
+
+
+"Snooper Timer" Id=10 TIMED_WAITING on java.util.TaskQueue@3e173b55
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@3e173b55
+	at java.util.TimerThread.mainLoop(Timer.java:552)
+	at java.util.TimerThread.run(Timer.java:505)
+
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+
+"Finalizer" Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@843249a
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@843249a
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+
+"Reference Handler" Id=2 WAITING on java.lang.ref.Reference$Lock@3752919c
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.Reference$Lock@3752919c
+	at java.lang.Object.wait(Object.java:503)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+
+
+
+Stacktrace:
+	at pu.run(SourceFile:59)
+	at java.lang.Thread.run(Thread.java:745)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.1
+	Operating System: Linux (amd64) version 3.13.0-32-generic
+	Java Version: 1.7.0_80, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 23563136 bytes (22 MB) / 409911296 bytes (390 MB) up to 518979584 bytes (494 MB)
+	JVM Flags: 2 total; -Xmx512M -Xms128M
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 20; [qx['tyb'/248, l='world', x=-738.96, y=94.00, z=452.15]]
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)

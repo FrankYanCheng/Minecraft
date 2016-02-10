@@ -1,0 +1,146 @@
+---- Minecraft Crash Report ----
+// Sorry :(
+
+Time: 1/29/16 11:57 PM
+Description: Watching Server
+
+java.lang.Error
+	at java.util.TreeMap.getFirstEntry(TreeMap.java:1962)
+	at java.util.TreeMap.firstKey(TreeMap.java:285)
+	at java.util.TreeSet.first(TreeSet.java:394)
+	at qu.a(SourceFile:503)
+	at qu.c(SourceFile:199)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:600)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:448)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at java.util.TreeMap.getFirstEntry(TreeMap.java:1962)
+	at java.util.TreeMap.firstKey(TreeMap.java:285)
+	at java.util.TreeSet.first(TreeSet.java:394)
+	at qu.a(SourceFile:503)
+	at qu.c(SourceFile:199)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:600)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+
+-- Thread Dump --
+Details:
+	Threads: "File IO Thread" Id=21 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at brn.c(SourceFile:51)
+	at brn.run(SourceFile:30)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Netty Epoll Server IO #1" Id=18 RUNNABLE
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:680)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:567)
+	at io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:406)
+	at io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:82)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.safeSetSuccess(AbstractChannel.java:736)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:441)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.access$100(AbstractChannel.java:374)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:418)
+	...
+
+
+"Server Watchdog" Id=20 RUNNABLE
+	at sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:446)
+	at pu.run(SourceFile:43)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Netty Epoll Server IO #0" Id=17 RUNNABLE (in native)
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Server console handler" Id=15 RUNNABLE (in native)
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(FileInputStream.java:272)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:273)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:334)
+	-  locked java.io.BufferedInputStream@4baf3e43
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:283)
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:325)
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:177)
+	-  locked java.io.InputStreamReader@3a0b5eb1
+	at java.io.InputStreamReader.read(InputStreamReader.java:184)
+	...
+
+
+"DestroyJavaVM" Id=14 RUNNABLE
+
+
+"Server thread" Id=12 RUNNABLE
+	at java.util.TreeMap.getFirstEntry(TreeMap.java:1962)
+	at java.util.TreeMap.firstKey(TreeMap.java:285)
+	at java.util.TreeSet.first(TreeSet.java:394)
+	at qu.a(SourceFile:503)
+	at qu.c(SourceFile:199)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:600)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+	...
+
+
+"Server Infinisleeper" Id=11 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at pq.run(SourceFile:65)
+
+
+"Snooper Timer" Id=10 TIMED_WAITING on java.util.TaskQueue@4075d43c
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@4075d43c
+	at java.util.TimerThread.mainLoop(Timer.java:552)
+	at java.util.TimerThread.run(Timer.java:505)
+
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+
+"Finalizer" Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@77c0d033
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@77c0d033
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+
+"Reference Handler" Id=2 WAITING on java.lang.ref.Reference$Lock@13a501b1
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.Reference$Lock@13a501b1
+	at java.lang.Object.wait(Object.java:503)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+
+
+
+Stacktrace:
+	at pu.run(SourceFile:59)
+	at java.lang.Thread.run(Thread.java:745)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.1
+	Operating System: Linux (amd64) version 3.13.0-32-generic
+	Java Version: 1.7.0_80, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 42891408 bytes (40 MB) / 412467200 bytes (393 MB) up to 518979584 bytes (494 MB)
+	JVM Flags: 2 total; -Xmx512M -Xms128M
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	Profiler Position: N/A (disabled)
+	Player Count: 0 / 20; []
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)
