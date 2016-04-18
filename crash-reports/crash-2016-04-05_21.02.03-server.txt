@@ -1,0 +1,148 @@
+---- Minecraft Crash Report ----
+// I feel sad now :(
+
+Time: 4/5/16 9:02 PM
+Description: Watching Server
+
+java.lang.Error
+	at jr.a(SourceFile:83)
+	at jt.<init>(SourceFile:32)
+	at qx.t_(SourceFile:221)
+	at aqr.a(SourceFile:1407)
+	at qu.a(SourceFile:600)
+	at aqr.g(SourceFile:1385)
+	at aqr.i(SourceFile:1278)
+	at qu.i(SourceFile:478)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:608)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:448)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at jr.a(SourceFile:83)
+	at jt.<init>(SourceFile:32)
+	at qx.t_(SourceFile:221)
+	at aqr.a(SourceFile:1407)
+	at qu.a(SourceFile:600)
+	at aqr.g(SourceFile:1385)
+	at aqr.i(SourceFile:1278)
+	at qu.i(SourceFile:478)
+	at net.minecraft.server.MinecraftServer.A(SourceFile:608)
+	at pp.A(SourceFile:299)
+	at net.minecraft.server.MinecraftServer.z(SourceFile:532)
+
+-- Thread Dump --
+Details:
+	Threads: "SIGHUP handler" Id=22 RUNNABLE
+
+
+"SIGTERM handler" Id=21 RUNNABLE
+	at java.lang.Thread.start0(Native Method)
+	at java.lang.Thread.start(Thread.java:714)
+	-  locked pf@16a33928
+	at java.lang.ApplicationShutdownHooks.runHooks(ApplicationShutdownHooks.java:102)
+	at java.lang.ApplicationShutdownHooks$1.run(ApplicationShutdownHooks.java:46)
+	at java.lang.Shutdown.runHooks(Shutdown.java:123)
+	at java.lang.Shutdown.sequence(Shutdown.java:167)
+	at java.lang.Shutdown.exit(Shutdown.java:212)
+	-  locked java.lang.Class@70f0acec
+	at java.lang.Terminator$1.handle(Terminator.java:52)
+	...
+
+
+"Netty Epoll Server IO #1" Id=18 RUNNABLE (in native)
+	at io.netty.channel.epoll.Native.epollWait(Native Method)
+	at io.netty.channel.epoll.EpollEventLoop.epollWait(EpollEventLoop.java:194)
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:219)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Server Watchdog" Id=20 RUNNABLE
+	at sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:446)
+	at pu.run(SourceFile:43)
+	at java.lang.Thread.run(Thread.java:745)
+
+
+"Netty Epoll Server IO #0" Id=17 RUNNABLE
+	at io.netty.buffer.AbstractByteBuf.readByte(AbstractByteBuf.java:570)
+	at he.readByte(SourceFile:609)
+	at he.e(SourceFile:109)
+	at hf.decode(SourceFile:33)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:249)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:149)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:333)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:319)
+	...
+
+
+"DestroyJavaVM" Id=14 RUNNABLE
+
+
+"Server thread" Id=12 RUNNABLE
+	at jr.a(SourceFile:83)
+	at jt.<init>(SourceFile:32)
+	at qx.t_(SourceFile:221)
+	at aqr.a(SourceFile:1407)
+	at qu.a(SourceFile:600)
+	at aqr.g(SourceFile:1385)
+	at aqr.i(SourceFile:1278)
+	at qu.i(SourceFile:478)
+	...
+
+
+"Server Infinisleeper" Id=11 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at pq.run(SourceFile:65)
+
+
+"Snooper Timer" Id=10 TIMED_WAITING on java.util.TaskQueue@48e8f3e1
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@48e8f3e1
+	at java.util.TimerThread.mainLoop(Timer.java:552)
+	at java.util.TimerThread.run(Timer.java:505)
+
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+
+"Finalizer" Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@35e35e2c
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@35e35e2c
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:135)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:151)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+
+"Reference Handler" Id=2 WAITING on java.lang.ref.Reference$Lock@623bb657
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.Reference$Lock@623bb657
+	at java.lang.Object.wait(Object.java:503)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+
+
+
+Stacktrace:
+	at pu.run(SourceFile:59)
+	at java.lang.Thread.run(Thread.java:745)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.1
+	Operating System: Linux (amd64) version 3.13.0-32-generic
+	Java Version: 1.7.0_80, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 47186104 bytes (45 MB) / 234467328 bytes (223 MB) up to 518979584 bytes (494 MB)
+	JVM Flags: 2 total; -Xmx512M -Xms128M
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 20; [qx['tyb'/301, l='world', x=-774.19, y=106.00, z=524.31]]
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)
